@@ -1,0 +1,23 @@
+{
+  "name": "mongoexo",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "express exo",
+  "main": "server.js",
+  "scripts": {
+    "client": "npm --prefix ../client run start",
+    "server": "nodemon --experimental-specifier-resolution=node server.js",
+    "dev": "concurrently -c \"bgBlue.blod, bgMagenta.bold, bgYellow.bold\" \"npm run server\" \"npm run client\" \"react-devtools\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Alex",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "16.0.0",
+    "express": "^4.17.3",
+    "express-validator": "6.14.0",
+    "mongoose": "6.2.4"
+  },
+  "devDependencies": {}
+}
