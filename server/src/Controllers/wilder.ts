@@ -1,8 +1,15 @@
+import { NextFunction, Request, Response } from "express";
 import WilderModel from "../Models/wilder";
 import { listErrors } from "../Tools/tools";
 
+interface IWilder {
+    name: string;
+    city: string;
+    skills: object[];
+};
+
 export default {
-    create:(req, res, next) => {
+    create:(req: Request, res: Response, next: NextFunction) => {
 
         const { name, city, skills } = req.body;
 
@@ -15,10 +22,10 @@ export default {
 
             wilder
                 .save()
-                .then((result) => {
+                .then((result: IWilder) => {
                     res.json({ success: true, result });
                 })
-                .catch((err) => {
+                .catch((err: object) => {
                     res.json({
                         success: false,
                         result: listErrors(err),
@@ -28,7 +35,7 @@ export default {
 
     },
 
-    findAll: (req, res) => {
+    findAll: (req: Request, res: Response) => {
         WilderModel.find()
             .then((result) => {
                 res.json({ success: true, result});
@@ -41,7 +48,7 @@ export default {
             });
     },
 
-    findOne: (req, res) => {
+    findOne: (req: Request, res: Response) => {
         const {_id} = req.params;
         WilderModel.findOne({_id})
             .then((result) => {
@@ -61,7 +68,7 @@ export default {
             });
     },
 
-    update: (req, res) => {
+    update: (req: Request, res: Response) => {
         const { _id, name, city, skills } = req.body
         WilderModel
             .updateOne({ _id}, { name, city, skills })
@@ -82,7 +89,7 @@ export default {
             });
     },
 
-    delete: (req, res) => {
+    delete: (req: Request, res: Response) => {
         const { _id } = req.body;
         WilderModel.deleteOne({ _id })
             .then((result) => {

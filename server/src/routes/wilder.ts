@@ -1,6 +1,6 @@
 import express from "express";
-import wilderController from "./../Controllers/wilder";
-import { wilderValidation } from "./../validators";
+import wilderController from "../Controllers/wilder";
+import { wilderValidation } from "../validators";
 
 const router = express.Router();
 

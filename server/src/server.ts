@@ -6,14 +6,15 @@ import wilderRouter from "./routes/wilder";
 
 dotenv.config();
 
-const PORT = process.env.PORT || 3000;
+const MONGO_URI: string = process.env.MONGO_URI || "";
+const PORT: string = process.env.PORT || "3000";
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 mongoose
-    .connect(process.env.MONGO_URI, 
+    .connect(MONGO_URI, 
         {
             autoIndex: true
         }
